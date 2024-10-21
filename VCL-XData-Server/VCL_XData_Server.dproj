@@ -133,6 +133,11 @@
             <Form>fmServer</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="..\WEB-TEST\uMAIN.pas">
+            <Form>fMAIN</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TWebForm</DesignClass>
+        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

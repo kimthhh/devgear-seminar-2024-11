@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{8D373B1E-803A-476C-88EF-D75A5A984B98}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="VCL-XData-Server\VCL_XData_Server.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="WEB-TEST\WebTest.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="VCL_XData_Server">
+        <MSBuild Projects="VCL-XData-Server\VCL_XData_Server.dproj"/>
+    </Target>
+    <Target Name="VCL_XData_Server:Clean">
+        <MSBuild Projects="VCL-XData-Server\VCL_XData_Server.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="VCL_XData_Server:Make">
+        <MSBuild Projects="VCL-XData-Server\VCL_XData_Server.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="WebTest">
+        <MSBuild Projects="WEB-TEST\WebTest.dproj"/>
+    </Target>
+    <Target Name="WebTest:Clean">
+        <MSBuild Projects="WEB-TEST\WebTest.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="WebTest:Make">
+        <MSBuild Projects="WEB-TEST\WebTest.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="VCL_XData_Server;WebTest"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="VCL_XData_Server:Clean;WebTest:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="VCL_XData_Server:Make;WebTest:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
