@@ -18,7 +18,9 @@ uses
   RedisMQ.Commands in 'RedisModule\delphiredisclient\sources\RedisMQ.Commands.pas',
   RedisMQ in 'RedisModule\delphiredisclient\sources\RedisMQ.pas',
   XSuperJSON in 'XSuperObject\XSuperJSON.pas',
-  XSuperObject in 'XSuperObject\XSuperObject.pas';
+  XSuperObject in 'XSuperObject\XSuperObject.pas',
+  CommonServiceQry in 'CommonServiceQry.pas',
+  uApiProtocols in '..\COMMON\uApiProtocols.pas';
 
 {$R *.res}
 

@@ -122,6 +122,8 @@
         <DCCReference Include="RedisModule\delphiredisclient\sources\RedisMQ.pas"/>
         <DCCReference Include="XSuperObject\XSuperJSON.pas"/>
         <DCCReference Include="XSuperObject\XSuperObject.pas"/>
+        <DCCReference Include="CommonServiceQry.pas"/>
+        <DCCReference Include="..\COMMON\uApiProtocols.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

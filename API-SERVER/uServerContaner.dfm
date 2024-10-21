@@ -1,4 +1,5 @@
 object ServerContainer: TServerContainer
+  OnCreate = DataModuleCreate
   Height = 210
   Width = 431
   object SparkleHttpSysDispatcher: TSparkleHttpSysDispatcher
@@ -15,6 +16,10 @@ object ServerContainer: TServerContainer
     SwaggerUIOptions.Enabled = True
     Left = 216
     Top = 16
+    object XDataServerCORS: TSparkleCorsMiddleware
+    end
+    object XDataServerGeneric: TSparkleGenericMiddleware
+    end
   end
   object XDataConnectionPool: TXDataConnectionPool
     Connection = AureliusConnection
