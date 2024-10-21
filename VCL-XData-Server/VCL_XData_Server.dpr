@@ -5,7 +5,8 @@ uses
   Server in 'Server.pas',
   ConnectionModule in 'ConnectionModule.pas' {FireDacMSSQLConnection: TDataModule},
   MainForm in 'MainForm.pas' {fmServer},
-  uMAIN in '..\WEB-TEST\uMAIN.pas' {fMAIN: TWebForm};
+  uMAIN in '..\WEB-TEST\uMAIN.pas' {fMAIN: TWebForm},
+  uLogWriteThread in 'uLogWriteThread.pas';
 
 {$R *.res}
 
