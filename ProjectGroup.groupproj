@@ -3,10 +3,10 @@
         <ProjectGuid>{8D373B1E-803A-476C-88EF-D75A5A984B98}</ProjectGuid>
     </PropertyGroup>
     <ItemGroup>
-        <Projects Include="VCL-XData-Server\VCL_XData_Server.dproj">
+        <Projects Include="WEB-TEST\WebTest.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="WEB-TEST\WebTest.dproj">
+        <Projects Include="API-SERVER\ApiServer.dproj">
             <Dependencies/>
         </Projects>
     </ItemGroup>
@@ -17,15 +17,6 @@
             <Default.Personality/>
         </BorlandProject>
     </ProjectExtensions>
-    <Target Name="VCL_XData_Server">
-        <MSBuild Projects="VCL-XData-Server\VCL_XData_Server.dproj"/>
-    </Target>
-    <Target Name="VCL_XData_Server:Clean">
-        <MSBuild Projects="VCL-XData-Server\VCL_XData_Server.dproj" Targets="Clean"/>
-    </Target>
-    <Target Name="VCL_XData_Server:Make">
-        <MSBuild Projects="VCL-XData-Server\VCL_XData_Server.dproj" Targets="Make"/>
-    </Target>
     <Target Name="WebTest">
         <MSBuild Projects="WEB-TEST\WebTest.dproj"/>
     </Target>
@@ -35,14 +26,23 @@
     <Target Name="WebTest:Make">
         <MSBuild Projects="WEB-TEST\WebTest.dproj" Targets="Make"/>
     </Target>
+    <Target Name="ApiServer">
+        <MSBuild Projects="API-SERVER\ApiServer.dproj"/>
+    </Target>
+    <Target Name="ApiServer:Clean">
+        <MSBuild Projects="API-SERVER\ApiServer.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ApiServer:Make">
+        <MSBuild Projects="API-SERVER\ApiServer.dproj" Targets="Make"/>
+    </Target>
     <Target Name="Build">
-        <CallTarget Targets="VCL_XData_Server;WebTest"/>
+        <CallTarget Targets="WebTest;ApiServer"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="VCL_XData_Server:Clean;WebTest:Clean"/>
+        <CallTarget Targets="WebTest:Clean;ApiServer:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="VCL_XData_Server:Make;WebTest:Make"/>
+        <CallTarget Targets="WebTest:Make;ApiServer:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

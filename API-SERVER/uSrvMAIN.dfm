@@ -11,6 +11,7 @@ object fSvrMAIN: TfSvrMAIN
   Font.Name = 'Tahoma'
   Font.Style = []
   OnCreate = FormCreate
+  OnDestroy = FormDestroy
   DesignSize = (
     472
     242)
