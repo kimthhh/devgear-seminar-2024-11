@@ -43,4 +43,14 @@ object fSvrMAIN: TfSvrMAIN
     TabOrder = 2
     OnClick = btStopClick
   end
+  object btn_SwaggerUI: TButton
+    Left = 358
+    Top = 8
+    Width = 106
+    Height = 25
+    Anchors = [akTop, akRight]
+    Caption = 'SwaggerUI'
+    TabOrder = 3
+    OnClick = btn_SwaggerUIClick
+  end
 end

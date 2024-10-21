@@ -17,24 +17,33 @@ uses
 
   , Winapi.MMSystem
   , uLogWriteThread
+  , Winapi.ShellAPI
 
   ;
 
+const
+  g_chrome32 = 'C:\Program Files (x86)\Google\Chrome\Application\chrome.exe';
+  g_chrome64 = 'C:\Program Files\Google\Chrome\Application\chrome.exe';
+
 type
   TfSvrMAIN = class(TForm)
-    mmInfo: TMemo;
-    btStart: TButton;
-    btStop: TButton;
+    mmInfo        : TMemo;
+    btStart       : TButton;
+    btStop        : TButton;
+    btn_SwaggerUI : TButton;
     procedure btStartClick(ASender: TObject);
     procedure btStopClick(ASender: TObject);
     procedure FormCreate(ASender: TObject);
     procedure FormDestroy(Sender: TObject);
+    procedure btn_SwaggerUIClick(Sender: TObject);
   strict private
     procedure UpdateGUI;
   public
     m_hLogEvent    : THandle;
     m_nLogWriteTrd : Integer;
     m_LogWriteTrd  : TLogWriteThread;
+  private
+    m_sURL         : string;
   end;
 
 var
@@ -51,6 +60,35 @@ resourcestring
   SServerStartedAt = 'Server started at ';
 
 { TMainForm }
+
+procedure TfSvrMAIN.btn_SwaggerUIClick(Sender: TObject);
+var
+  bExists: Boolean;
+  tmpUrl : string;
+begin
+
+  tmpUrl  := m_sURL + '/swaggerui#/';
+  bExists := FileExists( g_chrome64 );
+
+  if( bExists = False )then
+  begin
+    bExists := FileExists( g_chrome32 );
+    if( bExists = False )then
+    begin
+      ShellExecute( GetDeskTopWindow, 'open', Pchar('"shell:Appsfolder\Microsoft.MicrosoftEdge_8wekyb3d8bbwe!MicrosoftEdge"'), pchar(tmpUrl), nil, SW_SHOWNORMAL);
+    end
+    else
+    begin
+      // 32bit chrome.exe
+      ShellExecute( GetDeskTopWindow, nil, Pchar(g_chrome32), Pchar('--new-window  --incognito '+tmpUrl), nil, SW_SHOWNORMAL);
+    end;
+  end
+  else
+  begin
+    // 64bit chrome.exe
+    ShellExecute( GetDeskTopWindow, nil, Pchar(g_chrome64), Pchar('--new-window  --incognito '+tmpUrl), nil, SW_SHOWNORMAL);
+  end
+end;
 
 procedure TfSvrMAIN.btStartClick(ASender: TObject);
 begin
@@ -108,17 +146,25 @@ end;
 
 procedure TfSvrMAIN.UpdateGUI;
 const
-  cHttp = 'http://+';
+  cHttp          = 'http://+';
   cHttpLocalhost = 'http://localhost';
 begin
   btStart.Enabled := not ServerContainer.SparkleHttpSysDispatcher.Active;
-  btStop.Enabled := not btStart.Enabled;
+  btStop.Enabled  := not btStart.Enabled;
+
   if ServerContainer.SparkleHttpSysDispatcher.Active then
-    mmInfo.Lines.Add(SServerStartedAt + StringReplace(
-      ServerContainer.XDataServer.BaseUrl,
-      cHttp, cHttpLocalhost, [rfIgnoreCase]))
+  begin
+    m_sURL := StringReplace( ServerContainer.XDataServer.BaseUrl, cHttp, cHttpLocalhost, [rfIgnoreCase] );
+    mmInfo.Lines.Add( SServerStartedAt + m_sURL );
+
+    Assert( False, SServerStartedAt + m_sURL );
+  end
   else
-    mmInfo.Lines.Add(SServerStopped);
+  begin
+    mmInfo.Lines.Add( SServerStopped );
+
+    Assert( False, SServerStopped );
+  end;
 end;
 
 procedure OnAssertError(const Message, Filename: string; LineNumber: Integer; ErrorAddr: Pointer);

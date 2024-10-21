@@ -108,6 +108,8 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="uLogWriteThread.pas"/>
+        <DCCReference Include="CommonService.pas"/>
+        <DCCReference Include="CommonServiceImplementation.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

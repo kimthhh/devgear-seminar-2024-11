@@ -11,6 +11,8 @@ object ServerContainer: TServerContainer
     Dispatcher = SparkleHttpSysDispatcher
     Pool = XDataConnectionPool
     EntitySetPermissions = <>
+    SwaggerOptions.Enabled = True
+    SwaggerUIOptions.Enabled = True
     Left = 216
     Top = 16
   end
