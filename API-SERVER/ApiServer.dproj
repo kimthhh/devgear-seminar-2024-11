@@ -110,6 +110,18 @@
         <DCCReference Include="uLogWriteThread.pas"/>
         <DCCReference Include="CommonService.pas"/>
         <DCCReference Include="CommonServiceImplementation.pas"/>
+        <DCCReference Include="RedisModule\uPrsREDIS.pas"/>
+        <DCCReference Include="RedisModule\delphiredisclient\sources\JsonDataObjects.pas"/>
+        <DCCReference Include="RedisModule\delphiredisclient\sources\Redis.Client.pas"/>
+        <DCCReference Include="RedisModule\delphiredisclient\sources\Redis.Command.pas"/>
+        <DCCReference Include="RedisModule\delphiredisclient\sources\Redis.Commons.pas"/>
+        <DCCReference Include="RedisModule\delphiredisclient\sources\Redis.NetLib.Factory.pas"/>
+        <DCCReference Include="RedisModule\delphiredisclient\sources\Redis.NetLib.INDY.pas"/>
+        <DCCReference Include="RedisModule\delphiredisclient\sources\Redis.Values.pas"/>
+        <DCCReference Include="RedisModule\delphiredisclient\sources\RedisMQ.Commands.pas"/>
+        <DCCReference Include="RedisModule\delphiredisclient\sources\RedisMQ.pas"/>
+        <DCCReference Include="XSuperObject\XSuperJSON.pas"/>
+        <DCCReference Include="XSuperObject\XSuperObject.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
