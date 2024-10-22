@@ -98,7 +98,7 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="uServerContaner.pas">
+        <DCCReference Include="uServerContainer.pas">
             <Form>ServerContainer</Form>
             <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>

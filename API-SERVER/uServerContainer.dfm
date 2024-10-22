@@ -1,7 +1,7 @@
 object ServerContainer: TServerContainer
   OnCreate = DataModuleCreate
   Height = 210
-  Width = 431
+  Width = 350
   object SparkleHttpSysDispatcher: TSparkleHttpSysDispatcher
     Active = True
     Left = 72

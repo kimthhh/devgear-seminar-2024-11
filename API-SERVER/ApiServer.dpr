@@ -2,7 +2,7 @@ program ApiServer;
 
 uses
   Vcl.Forms,
-  uServerContaner in 'uServerContaner.pas' {ServerContainer: TDataModule},
+  uServerContainer in 'uServerContainer.pas' {ServerContainer: TDataModule},
   uSrvMAIN in 'uSrvMAIN.pas' {fSvrMAIN},
   uLogWriteThread in 'uLogWriteThread.pas',
   CommonService in 'CommonService.pas',
