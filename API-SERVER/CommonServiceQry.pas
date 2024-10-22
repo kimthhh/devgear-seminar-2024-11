@@ -10,7 +10,7 @@ uses   System.SysUtils
      , StrUtils
      , Graphics
      , Classes
-
+     (*
      , FireDAC.Stan.Intf
      , FireDAC.Stan.Option
      , FireDAC.Stan.Error
@@ -34,7 +34,7 @@ uses   System.SysUtils
      , FireDAC.Comp.BatchMove.DataSet
      , FireDAC.Comp.BatchMove
      , FireDAC.Comp.BatchMove.JSON
-
+     *)
      , XSuperObject
      , uPrsREDIS
      , uApiProtocols
@@ -47,7 +47,7 @@ implementation
 function Sq_login( const sID: string; const sPW: string ): ST_Indexed_DB;
 var
   sTemp : string;
-  qry   : TFDQuery;
+  //qry   : TFDQuery;
   res   : ST_Indexed_DB;
 begin
   try
