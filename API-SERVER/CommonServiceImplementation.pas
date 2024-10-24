@@ -31,18 +31,25 @@ type
     function login( sID, sPW: string ): string;
     function logout( sID: string ): string;
     function VerifyTokenAndExtend( sToken: string): string;
-
   end;
 
 implementation
 
 function TCommonService.Sum(A, B: double): double;
+var
+  sTemp : string;
 begin
   Result := A + B;
+  sTemp := Format( '** TCommonService.Sum( %f, %f ) > %f', [A, B, Result] );
+  Assert( false, sTemp );
 end;
 
 function TCommonService.EchoString(Value: string): string;
+var
+  sTemp : string;
 begin
+  sTemp := Format( '** TCommonService.EchoString( %s )', [Value] );
+  Assert( false, sTemp );
   Result := Value;
 end;
 

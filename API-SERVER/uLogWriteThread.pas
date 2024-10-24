@@ -28,7 +28,7 @@ type
     m_nPort           : Integer;
     m_dLogCount       : Double;
     m_dLogGotCount    : Double;
-    m_sAppName        ,
+    m_sAppName        : string;
     m_sCurrRunDir     : string;
     m_sLogBefore      : string;
     m_bRUN            : Boolean;
@@ -133,12 +133,11 @@ begin
       try
         m_hCriSection.acquire;
         //for sKey in m_dicLog.Keys  do
-        if m_dicLog.ContainsKey( FloatToStr( m_dLogGotCount ) ) then
+        sKey := FloatToStr( m_dLogGotCount );
+        if m_dicLog.ContainsKey( sKey ) then
         begin
-          sKey := FloatToStr( m_dLogGotCount );
           sLog := m_dicLog.Items[ sKey ];
           m_dicLog.Remove( sKey );
-          //Break;
           m_dLogGotCount := m_dLogGotCount + 1;
         end;
       finally
@@ -180,9 +179,9 @@ begin
       m_sLogBefore := sLog;
       sKey         := FloatToStr( m_dLogCount );
       m_dicLog.Add( sKey, sLog );
+      m_dLogCount  := m_dLogCount + 1;
     end;
   finally
-    m_dLogCount := m_dLogCount + 1;
     m_hCriSection.release;
   end;
 end;
