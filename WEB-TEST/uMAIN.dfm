@@ -9,11 +9,15 @@ object fMAIN: TfMAIN
     Align = alClient
     Alignment = taCenter
     Caption = 'Hello, World!'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -100
+    Font.Name = 'Segoe UI'
+    Font.Style = []
     HeightPercent = 100.000000000000000000
+    ParentFont = False
     WidthPercent = 100.000000000000000000
-    ExplicitLeft = 264
-    ExplicitTop = 232
-    ExplicitWidth = 78
-    ExplicitHeight = 19
+    ExplicitWidth = 573
+    ExplicitHeight = 133
   end
 end
