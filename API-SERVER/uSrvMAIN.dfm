@@ -19,11 +19,13 @@ object fSvrMAIN: TfSvrMAIN
   object mmInfo: TMemo
     Left = 8
     Top = 40
-    Width = 456
+    Width = 450
     Height = 194
     Anchors = [akLeft, akTop, akRight, akBottom]
     ReadOnly = True
     TabOrder = 0
+    ExplicitWidth = 444
+    ExplicitHeight = 177
   end
   object btStart: TButton
     Left = 8
@@ -44,7 +46,7 @@ object fSvrMAIN: TfSvrMAIN
     OnClick = btStopClick
   end
   object btn_SwaggerUI: TButton
-    Left = 358
+    Left = 352
     Top = 8
     Width = 106
     Height = 25
@@ -52,5 +54,6 @@ object fSvrMAIN: TfSvrMAIN
     Caption = 'SwaggerUI'
     TabOrder = 3
     OnClick = btn_SwaggerUIClick
+    ExplicitLeft = 346
   end
 end
