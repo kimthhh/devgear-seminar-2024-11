@@ -1,3 +1,6 @@
+// Copyright (c) KIM TAE HYUN, 2024.
+// This file is part of devgear-seminar-2024-11 and is licensed under the MIT License.
+
 unit uGlobal;
 
 interface
