@@ -18,7 +18,7 @@ object fMAIN: TfMAIN
     HeightPercent = 100.000000000000000000
     ParentFont = False
     WidthPercent = 100.000000000000000000
-    ExplicitWidth = 627
+    ExplicitWidth = 978
   end
   object pnl_body: TWebPanel
     Left = 0
@@ -54,9 +54,9 @@ object fMAIN: TfMAIN
   end
   object btn_search: TWebButton
     Left = 1288
-    Top = 32
+    Top = 20
     Width = 145
-    Height = 75
+    Height = 56
     Anchors = [akTop, akRight]
     Caption = #51312' '#54924
     ChildOrder = 2
@@ -66,9 +66,9 @@ object fMAIN: TfMAIN
   end
   object btn_login: TWebButton
     Left = 986
-    Top = 32
+    Top = 20
     Width = 145
-    Height = 75
+    Height = 56
     Anchors = [akTop, akRight]
     Caption = #47196#44536#51064
     ChildOrder = 2
@@ -78,14 +78,24 @@ object fMAIN: TfMAIN
   end
   object btn_logout: TWebButton
     Left = 1137
-    Top = 32
+    Top = 20
     Width = 145
-    Height = 75
+    Height = 56
     Anchors = [akTop, akRight]
     Caption = #47196#44536#50500#50883
     ChildOrder = 2
     HeightPercent = 100.000000000000000000
     WidthPercent = 100.000000000000000000
     OnClick = btn_logoutClick
+  end
+  object edt_token: TWebEdit
+    Left = 986
+    Top = 88
+    Width = 447
+    Height = 34
+    Anchors = [akTop, akRight]
+    ChildOrder = 5
+    HeightPercent = 100.000000000000000000
+    WidthPercent = 100.000000000000000000
   end
 end

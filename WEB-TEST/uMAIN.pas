@@ -58,6 +58,7 @@ type
     btn_logout  : TWebButton;
     btn_search  : TWebButton;
     grd_test    : TWebStringGrid;
+    edt_token: TWebEdit;
 
             procedure WebFormCreate(Sender: TObject);
             procedure WebFormDestroy(Sender: TObject);
@@ -87,6 +88,7 @@ begin
   SetConsoleLog( '** TfMAIN.WebFormCreate()' );
 
   g_sToken           := '';
+  edt_token.Enabled  := False;
   btn_logout.Enabled := False;
   btn_search.Enabled := False;
 
@@ -108,18 +110,21 @@ begin
 
     if( m_stLogin.s_Token <> '' )then
     begin
-      g_sToken := m_stLogin.s_Token;
+      g_sToken       := m_stLogin.s_Token;
+      edt_token.Text := m_stLogin.s_Token;
 
       btn_logout.Enabled := True;
       btn_search.Enabled := True;
+      btn_login.Enabled  := False;
     end
     else
     begin
       btn_logout.Enabled := False;
       btn_search.Enabled := False;
+      btn_login.Enabled  := True;
     end;
   finally
-    btn_login.Enabled := True;
+    ;
   end;
 end;
 
@@ -134,9 +139,11 @@ begin
 
     if( m_stLogin.sException = '' )then
     begin
+      btn_login.Enabled  := True;
       btn_logout.Enabled := False;
       btn_search.Enabled := False;
       g_sToken           := m_stLogin.s_Token;
+      edt_token.Text     := m_stLogin.s_Token;
     end
     else
     begin
