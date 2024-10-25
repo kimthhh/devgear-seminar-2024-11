@@ -120,6 +120,7 @@
         <DCCReference Include="..\COMMON\uApiProtocols.pas"/>
         <DCCReference Include="Lib\uPrsUnauthorized.pas"/>
         <DCCReference Include="Lib\uUtils.pas"/>
+        <DCCReference Include="uGlobal.pas"/>
         <None Include="index.html"/>
         <None Include="Manifest.json"/>
         <None Include="serviceworker.js"/>

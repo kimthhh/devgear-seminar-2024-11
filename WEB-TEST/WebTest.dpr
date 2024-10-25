@@ -9,7 +9,8 @@ uses
   uApiList in 'Lib\uApiList.pas',
   uApiProtocols in '..\COMMON\uApiProtocols.pas',
   uPrsUnauthorized in 'Lib\uPrsUnauthorized.pas',
-  uUtils in 'Lib\uUtils.pas';
+  uUtils in 'Lib\uUtils.pas',
+  uGlobal in 'uGlobal.pas';
 
 {$R *.res}
 

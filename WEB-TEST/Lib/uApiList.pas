@@ -51,7 +51,7 @@ begin
     SetConsoleLog('**(+) api_post_login');
 
     sRes := '';
-    sURL := sApiURL + '/fix/CommonService/login';
+    sURL := sApiURL + '/CommonService/login';
     asm
       var sJson = '';
       await axios.post( sURL, {
@@ -93,7 +93,7 @@ begin
     SetConsoleLog('**(+) api_post_logout');
 
     sRes := '';
-    sURL := sApiURL + '/fix/CommonService/logout';
+    sURL := sApiURL + '/CommonService/logout';
     asm
       var sJson = '';
       await axios.post(sURL, {

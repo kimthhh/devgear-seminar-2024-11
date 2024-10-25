@@ -14,6 +14,7 @@ uses
   Web              ,
   Types            ,
 
+  uGlobal          ,
   uPrsUnauthorized ,
   uUtils           ,
   uApiProtocols    ,
@@ -31,16 +32,17 @@ type
   TfMAIN = class(TWebForm)
     lbl_info    : TWebLabel;
     pnl_body    : TWebPanel;
-    btn_search  : TWebButton;
-    grd_test    : TWebStringGrid;
     btn_login   : TWebButton;
     btn_logout  : TWebButton;
+    btn_search  : TWebButton;
+    grd_test    : TWebStringGrid;
 
-    procedure WebFormCreate(Sender: TObject);
-    procedure WebFormDestroy(Sender: TObject);
-    procedure btn_searchClick(Sender: TObject);
-    procedure btn_logoutClick(Sender: TObject);
-    procedure btn_loginClick(Sender: TObject);
+            procedure WebFormCreate(Sender: TObject);
+            procedure WebFormDestroy(Sender: TObject);
+
+    [async] procedure btn_searchClick(Sender: TObject);
+    [async] procedure btn_logoutClick(Sender: TObject);
+    [async] procedure btn_loginClick(Sender: TObject);
 
   private
     { Private declarations }
@@ -67,6 +69,7 @@ end;
 procedure TfMAIN.WebFormDestroy(Sender: TObject);
 begin
   SetConsoleLog( '** TfMAIN.WebFormDestroy()' );
+  m_UnAuth.Free;
 end;
 
 procedure TfMAIN.btn_loginClick(Sender: TObject);
@@ -96,6 +99,7 @@ begin
   if( sMSG <> '' )then
   begin
     // To do something...
+    ShowMessage( '로그인을 다시 해 주세요!' );
   end;
 end;
 
