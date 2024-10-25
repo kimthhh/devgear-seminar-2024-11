@@ -39,6 +39,7 @@ uses
   uPrsUnauthorized ,
   uUtils           ,
   uApiProtocols    ,
+  uApiList         ,
 
   WEBLib.Graphics  ,
   WEBLib.Controls  ,
@@ -67,8 +68,8 @@ type
 
   private
     { Private declarations }
-    m_UnAuth : TPrsUnauthorized;  // verify & prs for Status code: 401 {Unauthorized}
-
+    m_UnAuth  : TPrsUnauthorized;  // verify & prs for Status code: 401 {Unauthorized}
+    m_stLogin : ST_Indexed_DB;
   public
     { Public declarations }
     [async] function OnCheckUnauthorized( sMSG: string; sFrom: string ): Integer; // verify & prs for Status code: 401 {Unauthorized}
@@ -84,6 +85,11 @@ implementation
 procedure TfMAIN.WebFormCreate(Sender: TObject);
 begin
   SetConsoleLog( '** TfMAIN.WebFormCreate()' );
+
+  g_sToken           := '';
+  btn_logout.Enabled := False;
+  btn_search.Enabled := False;
+
   m_UnAuth := TPrsUnauthorized.Create( TOnCheckUnauthorized( @OnCheckUnauthorized ) ); // verify & prs for Status code: 401 {Unauthorized}
 end;
 
@@ -96,16 +102,63 @@ end;
 procedure TfMAIN.btn_loginClick(Sender: TObject);
 begin
   SetConsoleLog( '** TfMAIN.btn_loginClick( call api )' );
+  try
+    btn_login.Enabled := False;
+    m_stLogin  := Await( api_post_login( g_sApiURL, 'kimtaehyun', 'pointhub' ) );
+
+    if( m_stLogin.s_Token <> '' )then
+    begin
+      g_sToken := m_stLogin.s_Token;
+
+      btn_logout.Enabled := True;
+      btn_search.Enabled := True;
+    end
+    else
+    begin
+      btn_logout.Enabled := False;
+      btn_search.Enabled := False;
+    end;
+  finally
+    btn_login.Enabled := True;
+  end;
 end;
 
 procedure TfMAIN.btn_logoutClick(Sender: TObject);
 begin
   SetConsoleLog( '** TfMAIN.btn_logoutClick( call api )' );
+  try
+    btn_logout.Enabled := False;
+    m_stLogin := await( api_post_logout( g_sApiUrl           ,
+                                         m_stLogin.s_Token   ,
+                                         m_stLogin.s_USER_ID   ) );
+
+    if( m_stLogin.sException = '' )then
+    begin
+      btn_logout.Enabled := False;
+      btn_search.Enabled := False;
+      g_sToken           := m_stLogin.s_Token;
+    end
+    else
+    begin
+      btn_logout.Enabled := True;
+    end;
+  finally
+    ;
+  end;
 end;
 
 procedure TfMAIN.btn_searchClick(Sender: TObject);
 begin
   SetConsoleLog( '** TfMAIN.btn_searchClick( call api )' );
+  try
+    btn_search.Enabled := False;
+    if( g_sToken <> '' )then
+    begin
+
+    end;
+  finally
+    btn_search.Enabled := True;
+  end;
 end;
 
 function TfMAIN.OnCheckUnauthorized( sMSG: string; sFrom: string ): Integer; // verify & prs for Status code: 401 {Unauthorized}
@@ -117,9 +170,13 @@ begin
   SetConsoleLog( sINFO );
 
   Result := 0;
+
   if( sMSG <> '' )then
   begin
-    // To do something...
+    g_sToken           := '';
+    btn_logout.Enabled := False;
+    btn_search.Enabled := False;
+
     ShowMessage( '로그인을 다시 해 주세요!' );
   end;
 end;
