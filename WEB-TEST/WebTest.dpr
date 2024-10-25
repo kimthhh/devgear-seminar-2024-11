@@ -5,7 +5,11 @@ program WebTest;
 uses
   Vcl.Forms,
   WEBLib.Forms,
-  uMAIN in 'uMAIN.pas' {fMAIN: TWebForm} {*.html};
+  uMAIN in 'uMAIN.pas' {fMAIN: TWebForm} {*.html},
+  uApiList in 'Lib\uApiList.pas',
+  uApiProtocols in '..\COMMON\uApiProtocols.pas',
+  uPrsUnauthorized in 'Lib\uPrsUnauthorized.pas',
+  uUtils in 'Lib\uUtils.pas';
 
 {$R *.res}
 

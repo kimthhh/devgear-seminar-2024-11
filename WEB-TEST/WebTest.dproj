@@ -116,6 +116,10 @@
             <FormType>dfm</FormType>
             <DesignClass>TWebForm</DesignClass>
         </DCCReference>
+        <DCCReference Include="Lib\uApiList.pas"/>
+        <DCCReference Include="..\COMMON\uApiProtocols.pas"/>
+        <DCCReference Include="Lib\uPrsUnauthorized.pas"/>
+        <DCCReference Include="Lib\uUtils.pas"/>
         <None Include="index.html"/>
         <None Include="Manifest.json"/>
         <None Include="serviceworker.js"/>
@@ -177,15 +181,15 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="Project1.html" Configuration="Debug" Class="ProjectFile">
-                    <Platform Name="Win32">
-                        <RemoteDir>.\</RemoteDir>
-                        <Overwrite>true</Overwrite>
-                    </Platform>
-                </DeployFile>
                 <DeployFile LocalName="Win32\Debug\WebTest.exe" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win32">
                         <RemoteName>WebTest.exe</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="index.html" Configuration="Debug" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
