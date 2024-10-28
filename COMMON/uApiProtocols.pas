@@ -55,6 +55,20 @@ type
     s_StoreRole      : string;
   end;
 
+  ST_GRID_DATA = packed record
+    sException       : string;
+    s_name           : string;
+    s_mobile         : string;
+    s_email          : string;
+    s_addr           : string;
+  end;
+
+  ST_GRID_DATA_SET = packed record
+    sException       : string;
+    n_count          : Integer;
+    ITEM             : array of ST_GRID_DATA;
+  end;
+
 
 implementation
 

@@ -18,7 +18,7 @@ object fMAIN: TfMAIN
     HeightPercent = 100.000000000000000000
     ParentFont = False
     WidthPercent = 100.000000000000000000
-    ExplicitWidth = 978
+    ExplicitWidth = 627
   end
   object pnl_body: TWebPanel
     Left = 0
@@ -28,8 +28,6 @@ object fMAIN: TfMAIN
     Align = alClient
     ChildOrder = 1
     TabOrder = 0
-    ExplicitLeft = -8
-    ExplicitTop = 261
     object grd_test: TWebStringGrid
       Left = 0
       Top = 0
@@ -46,10 +44,6 @@ object fMAIN: TfMAIN
       RangeEdit.Step = 1.000000000000000000
       HeightPercent = 100.000000000000000000
       WidthPercent = 100.000000000000000000
-      ExplicitLeft = 432
-      ExplicitTop = 248
-      ExplicitWidth = 320
-      ExplicitHeight = 120
     end
   end
   object btn_search: TWebButton
@@ -88,7 +82,7 @@ object fMAIN: TfMAIN
     WidthPercent = 100.000000000000000000
     OnClick = btn_logoutClick
   end
-  object edt_token: TWebEdit
+  object edt_apikey: TWebEdit
     Left = 986
     Top = 88
     Width = 447

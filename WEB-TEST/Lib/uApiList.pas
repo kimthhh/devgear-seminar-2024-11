@@ -57,7 +57,8 @@ uses
   ;
 
   [async] function api_post_login( sApiURL, sID, sPW: string ): ST_Indexed_DB;
-  [async] function api_post_logout( sApiURL, sToken, sID: string ): ST_Indexed_DB;
+  [async] function api_post_logout( sApiURL, sApiKEY, sID: string ): ST_Indexed_DB;
+  [async] function api_get_GetGridDATA( sApiURL, sApiKEY, sGroupID: string ): ST_GRID_DATA_SET;
 
 implementation
 
@@ -103,7 +104,7 @@ begin
   end;
 end;
 
-function api_post_logout(sApiURL, sToken, sID: string): ST_Indexed_DB;
+function api_post_logout(sApiURL, sApiKEY, sID: string): ST_Indexed_DB;
 var
   sURL   : string;
   sTemp  : string;
@@ -122,7 +123,7 @@ begin
       }, {
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': sToken
+          'Authorization': sApiKEY
         }
       })
       .then(response => {
@@ -154,5 +155,52 @@ begin
     SetConsoleLog('**(-) api_post_logout');
   end;
 end;
+
+function api_get_GetGridDATA( sApiURL, sApiKEY, sGroupID: string ): ST_GRID_DATA_SET;
+var
+  sURL : string;
+  sRes : string;
+  sv   : JSValue;
+begin
+  try
+    SetConsoleLog('**(+) api_get_GetGridDATA');
+    sRes := '';
+    sURL := sApiURL + '/CommonService/GetGridDATA?sGroupID=' + sGroupID;
+    asm
+      var sJson = '';
+      await axios.get( sURL, {
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': sApiKEY
+        }
+      })
+      .then(response => {
+        if( response.status === 200 ){
+          sJson = JSON.stringify( response.data );
+          sv    = JSON.parse( sJson    );
+          sv    = JSON.parse( sv.value );
+        }
+      })
+      .catch( (error) => {
+        if (error.response && error.response.status === 401) {
+          sRes = '401';
+        }
+        console.error('Error:', error);
+      });
+    end;
+    SetConsoleLog( sv );
+  finally
+    if( sRes = '401' )then
+    begin
+      TPrsUnauthorized.SendMessage( sRes , '>from api_get_GetGridDATA' );
+    end
+    else
+    begin
+      Result := ST_GRID_DATA_SET( sv );
+    end;
+    SetConsoleLog('**(-) api_get_GetGridDATA');
+  end;
+end;
+
 
 end.

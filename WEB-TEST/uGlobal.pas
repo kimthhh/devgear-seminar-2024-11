@@ -40,7 +40,7 @@ uses
 
 var
   g_sApiURL : string = 'http://localhost:2001/tms/xdata/';
-  g_sToken  : string = '';
+  g_sApiKEY : string = '';
 
 implementation
 
