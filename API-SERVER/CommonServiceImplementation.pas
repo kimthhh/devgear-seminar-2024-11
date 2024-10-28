@@ -51,7 +51,9 @@ type
 
     function login( sID, sPW: string ): string;
     function logout( sID: string ): string;
-    function VerifyTokenAndExtend( sToken: string): string;
+    function VerifyTokenAndExtend( sApiKEY: string): string;
+
+    function GetGridDATA( sGroupID: string ): string;
   end;
 
 implementation
@@ -74,16 +76,16 @@ begin
   Result := Value;
 end;
 
-function TCommonService.VerifyTokenAndExtend( sToken: string): string;
+function TCommonService.VerifyTokenAndExtend( sApiKEY: string): string;
 var
   sTemp: string;
 begin
   try
-    sTemp := Format( '** TCommonService.VerifyTokenAndExtend( %s )', [sToken] );
+    sTemp := Format( '** TCommonService.VerifyTokenAndExtend( %s )', [sApiKEY] );
     Assert( false, sTemp );
 
     sTemp := 'False';
-    if( rds_VerifyTokenAndExtend( sToken ) )then
+    if( rds_VerifyTokenAndExtend( sApiKEY ) )then
     begin
       sTemp := 'True';
     end;
@@ -134,6 +136,22 @@ begin
     //------------------------
   finally
     result := TJSON.Stringify< ST_Indexed_DB >( res );
+  end;
+end;
+
+function TCommonService.GetGridDATA( sGroupID: string ): string;
+var
+  sTemp : string;
+  res   : ST_GRID_DATA_SET;
+begin
+  try
+    sTemp := Format( '** TCommonService.GetGridDATA( %s )', [sGroupID] );
+    Assert( false, sTemp );
+    FillChar( res, SizeOf(ST_GRID_DATA_SET), #0 );
+
+    res := sq_GetGridDATA( sGroupID ); //ST_GRID_DATA_SET
+  finally
+    result := TJSON.Stringify< ST_GRID_DATA_SET >( res );
   end;
 end;
 

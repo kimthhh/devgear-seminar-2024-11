@@ -44,6 +44,7 @@ uses
   , Sparkle.Comp.CorsMiddleware
 
   , CommonService
+  , uPrsREDIS
 
   ;
 
@@ -189,17 +190,10 @@ begin
         begin
           bNEXT := True;
         end
-        else if( sLastSegment = LowerCase( 'logout' ) )then
+        else
         begin
-          bNEXT := True;
-        end
-        else if( sLastSegment = LowerCase( 'VerifyTokenAndExtend' ) )then
-        begin
-          bNEXT := True;
-        end
-        ;
-
-        bNEXT := True;
+          bNEXT := rds_VerifyTokenAndExtend( sToken );
+        end;
       end;
 
       if( bNEXT )then

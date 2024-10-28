@@ -31,7 +31,7 @@ uses
 
 function GenerateToken(): string;
 function rds_Login(const sUserID: string): string;
-function rds_VerifyTokenAndExtend(const sToken: string): Boolean;
+function rds_VerifyTokenAndExtend(const sApiKEY: string): Boolean;
 function rds_Logout(const sUserID: string): Boolean;
 
 implementation
@@ -125,7 +125,7 @@ begin
   Assert( false, '**(-) rds_Login');
 end;
 
-function rds_VerifyTokenAndExtend(const sToken: string): Boolean;
+function rds_VerifyTokenAndExtend(const sApiKEY: string): Boolean;
 var
   Redis   : IRedisClient;
   sTemp   : string;
@@ -144,16 +144,16 @@ begin
     begin
       try
         //------------------------------
-        if( Redis.Exists( sToken ) )then
+        if( Redis.Exists( sApiKEY ) )then
         //------------------------------
         begin
           //------------------------------
-          sUserID := Redis.GET( sToken );
+          sUserID := Redis.GET( sApiKEY );
           //------------------------------
           if( sUserID <> '' )then
           begin
             //------------------------------
-            Redis.EXPIRE( sToken, g_n_rds_extended_time );
+            Redis.EXPIRE( sApiKEY, g_n_rds_extended_time );
             //------------------------------
             sTemp := Format( '> ID(%s) 인증시간 업데이트!!', [sUserID] );
             Assert( false, sTemp );

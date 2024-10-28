@@ -62,13 +62,56 @@ uses   System.SysUtils
      ;
 
 function Sq_login( const sID: string; const sPW: string ): ST_Indexed_DB;
+function sq_GetGridDATA( const sGroupID: string ): ST_GRID_DATA_SET;
 
 implementation
+
+function sq_GetGridDATA( const sGroupID: string ): ST_GRID_DATA_SET;
+var
+  I     : Integer;
+  sTemp : string;
+  res   : ST_GRID_DATA_SET;
+begin
+  try
+    Assert( false, '**(+) sq_GetGridDATA' );
+    FillChar( res, SizeOf(ST_GRID_DATA_SET), #0 );
+    try
+      for I := 0 to 9 do
+      begin
+        SetLength( res.ITEM, I+1 );
+
+        res.ITEM[I].s_name   := Format('%s %.2d',['Gil Dong Hong',I+1]);
+        res.ITEM[I].s_mobile := Format('010-1234-%.4d',[I+1]);
+        res.ITEM[I].s_email  := Format('PointHUB.%.2d@gmail.com',[I+1]);
+        res.ITEM[I].s_addr   := Format('1004-%d, 11, Teheran-ro, Gangnam-gu, Seoul, Korea',[I+1]);
+
+        sTemp := Format( '**(%d) %s, %s, %s, %s', [ I ,
+                                                    res.ITEM[I].s_name   ,
+                                                    res.ITEM[I].s_mobile ,
+                                                    res.ITEM[I].s_email  ,
+                                                    res.ITEM[I].s_addr
+                                                  ] );
+        Assert( false, sTemp );
+      end;
+      res.n_count := I;
+    except
+      on E: Exception do
+      begin
+        res.sException := E.Message;
+        Assert( false, E.Message );
+      end;
+    end;
+
+  finally
+    Result := res;
+    Assert( false, '**(-) sq_GetGridDATA' );
+  end;
+end;
 
 function Sq_login( const sID: string; const sPW: string ): ST_Indexed_DB;
 var
   sTemp : string;
-  //qry   : TFDQuery;
+//qry   : TFDQuery;
   res   : ST_Indexed_DB;
 begin
   try
@@ -87,12 +130,12 @@ begin
         Close;
         SQL.Clear;
 
-        SQL.Add(' SELECT ts.StoreRole       as s_StoreRole      ');
-        SQL.Add('   FROM tblStore ts WITH(NOLOCK)               ');
-        SQL.Add('  WHERE ts.ParkCode      = 1                   ');
-        SQL.Add('    AND ts.UseYes        = 1                   ');
-        SQL.Add('    AND ts.StoreID       = :sID                ');
-        SQL.Add('    AND ts.StorePassword = :sPW                ');
+        SQL.Add(' SELECT ts.UserID                ');
+        SQL.Add('   FROM tblUSER ts WITH(NOLOCK)  ');
+        SQL.Add('  WHERE 1 = 1                    ');
+        SQL.Add('    AND ts.UseYes   = 1          ');
+        SQL.Add('    AND ts.UserID   = :sID       ');
+        SQL.Add('    AND ts.Password = :sPW       ');
 
         paramByName( 'sID' ).AsString := sID;
         paramByName( 'sPW' ).AsString := sPW;
@@ -102,9 +145,8 @@ begin
 
         if( RecordCount > 0 )then
         begin
-          res.s_USER_ID    := sID;
-          res.s_StoreRole  := FieldByName( 's_StoreRole'      ).AsString;
-          res.s_LoginTime  := FormatDateTime( 'yyyy-mm-dd hh:mm:ss', res.dt_LoginTime );
+          res.s_UserID     := sID;
+          res.s_LoginTime  := FormatDateTime( 'yyyy-mm-dd hh:mm:ss', Now() );
         end;
       end;
       *)

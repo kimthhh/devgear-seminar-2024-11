@@ -35,7 +35,9 @@ type
 
     [HttpPost] function login( sID, sPW: string ): string;
     [HttpPost] function logout([XDefault('')] sID: string ): string;
-    [HttpPost] function VerifyTokenAndExtend( sToken: string): string;
+    [HttpPost] function VerifyTokenAndExtend( sApiKEY: string): string;
+
+    [HttpGet]  function GetGridDATA( [XDefault('')] sGroupID: string ): string;
   end;
 
 implementation
