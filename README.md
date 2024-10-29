@@ -9,7 +9,7 @@ API KEY처리 및 DATA 조회, 화면표시 처리를 2024.11.07 서울 세미�
 - **ApiServer**와 **WetTest** 웹페이지간 API연동 처리시 사용될 record(구조체)가 정의된 uApiProtocols.pas가 위치합니다. **ApiServer**와 **WetTest** 웹페이지서 공용으로 참조됩니다. 
 
 ### 2. API-SERVER
-- **TMS XData로 제작된 샘플 REST API 프로젝트가 존재합니다.
+- **TMS XData**로 제작된 샘플 REST API 프로젝트가 존재합니다.
 
 ### 3. WEB-TEST 
-- **TMS WEB Core로 제작된 샘플 웹페이지 프로젝트가 존해합니다.
+- **TMS WEB Core**로 제작된 샘플 웹페이지 프로젝트가 존해합니다.
