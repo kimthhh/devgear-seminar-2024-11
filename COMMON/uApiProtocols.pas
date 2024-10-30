@@ -69,6 +69,8 @@ type
     ITEM             : array of ST_GRID_DATA;
   end;
 
+var
+  g_bPingPong : Boolean = False;
 
 implementation
 

@@ -47,7 +47,7 @@ object fMAIN: TfMAIN
     end
   end
   object btn_search: TWebButton
-    Left = 1288
+    Left = 1287
     Top = 20
     Width = 145
     Height = 56

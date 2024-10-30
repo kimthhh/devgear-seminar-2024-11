@@ -68,22 +68,35 @@ implementation
 
 function sq_GetGridDATA( const sGroupID: string ): ST_GRID_DATA_SET;
 var
-  I     : Integer;
-  sTemp : string;
-  res   : ST_GRID_DATA_SET;
+  nCount : Integer;
+  I      : Integer;
+  sTemp  : string;
+  res    : ST_GRID_DATA_SET;
 begin
   try
     Assert( false, '**(+) sq_GetGridDATA' );
     FillChar( res, SizeOf(ST_GRID_DATA_SET), #0 );
     try
-      for I := 0 to 9 do
+
+      if( g_bPingPong )then
+      begin
+        g_bPingPong := False;
+        nCount := 99;
+      end
+      else
+      begin
+        g_bPingPong := True;
+        nCount := 9;
+      end;
+
+      for I := 0 to nCount do
       begin
         SetLength( res.ITEM, I+1 );
 
         res.ITEM[I].s_name   := Format('%s %.2d',['Gil Dong Hong',I+1]);
         res.ITEM[I].s_mobile := Format('010-1234-%.4d',[I+1]);
         res.ITEM[I].s_email  := Format('PointHUB.%.2d@gmail.com',[I+1]);
-        res.ITEM[I].s_addr   := Format('1004-%d, 11, Teheran-ro, Gangnam-gu, Seoul, Korea',[I+1]);
+        res.ITEM[I].s_addr   := Format('1004-%d, Teheran-ro, Gangnam-gu, Seoul, Korea',[I+1]);
 
         sTemp := Format( '**(%d) %s, %s, %s, %s', [ I ,
                                                     res.ITEM[I].s_name   ,

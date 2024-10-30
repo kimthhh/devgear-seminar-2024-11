@@ -193,30 +193,34 @@ var
   I: Integer;
 begin
   SetConsoleLog( '** TfMAIN.btn_searchClick( call api )' );
-  try
-    btn_search.Enabled := False;
-    if( g_sApiKEY <> '' )then
-    begin
-      m_stGrid := await( api_get_GetGridDATA( g_sApiUrl ,
-                                              g_sApiKEY , '' ) );
-      SetConsoleLog( m_stGrid );
-
-      // TWebStringGrid 설정
-      grd_test.RowCount := m_stGrid.n_count + 1; // 첫 번째 행은 헤더로 사용
-
-      // record 배열 데이터를 그리드에 삽입
-      for i := 0 to m_stGrid.n_count -1 do
+  if( btn_search.Enabled )then
+  begin
+    try
+      grd_test.RowCount := 1;
+      btn_search.Enabled := False;
+      if( g_sApiKEY <> '' )then
       begin
-        grd_test.Cells[1, i + 1] := IntToStr( I+1 );
-        grd_test.Cells[2, i + 1] := m_stGrid.ITEM[I].s_name;
-        grd_test.Cells[3, i + 1] := m_stGrid.ITEM[I].s_mobile;
-        grd_test.Cells[4, i + 1] := m_stGrid.ITEM[I].s_email;
-        grd_test.Cells[5, i + 1] := m_stGrid.ITEM[I].s_addr;
-      end;
+        m_stGrid := await( api_get_GetGridDATA( g_sApiUrl ,
+                                                g_sApiKEY , '' ) );
+        SetConsoleLog( m_stGrid );
 
+        // TWebStringGrid 설정
+        grd_test.RowCount := m_stGrid.n_count + 1; // 첫 번째 행은 헤더로 사용
+
+        // record 배열 데이터를 그리드에 삽입
+        for i := 0 to m_stGrid.n_count -1 do
+        begin
+          grd_test.Cells[1, i + 1] := IntToStr( I+1 );
+          grd_test.Cells[2, i + 1] := m_stGrid.ITEM[I].s_name;
+          grd_test.Cells[3, i + 1] := m_stGrid.ITEM[I].s_mobile;
+          grd_test.Cells[4, i + 1] := m_stGrid.ITEM[I].s_email;
+          grd_test.Cells[5, i + 1] := m_stGrid.ITEM[I].s_addr;
+        end;
+
+      end;
+    finally
+      btn_search.Enabled := True;
     end;
-  finally
-    btn_search.Enabled := True;
   end;
 end;
 
