@@ -52,7 +52,7 @@ object fMAIN: TfMAIN
     Width = 145
     Height = 56
     Anchors = [akTop, akRight]
-    Caption = #51312' '#54924
+    Caption = 'Search'
     ChildOrder = 2
     HeightPercent = 100.000000000000000000
     WidthPercent = 100.000000000000000000
@@ -64,7 +64,7 @@ object fMAIN: TfMAIN
     Width = 145
     Height = 56
     Anchors = [akTop, akRight]
-    Caption = #47196#44536#51064
+    Caption = 'Login'
     ChildOrder = 2
     HeightPercent = 100.000000000000000000
     WidthPercent = 100.000000000000000000
@@ -76,7 +76,7 @@ object fMAIN: TfMAIN
     Width = 145
     Height = 56
     Anchors = [akTop, akRight]
-    Caption = #47196#44536#50500#50883
+    Caption = 'Logout'
     ChildOrder = 2
     HeightPercent = 100.000000000000000000
     WidthPercent = 100.000000000000000000
