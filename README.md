@@ -36,5 +36,5 @@ This Delphi project serves as a sample for processing API keys, data retrieval, 
 [ENG]
 https://www.canva.com/design/DAGUBuI9Phg/BqPCwcz4abR4FqBk6LAwoA/edit?utm_content=DAGUBuI9Phg&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
 
-[KOR]
+[한글]
 https://www.canva.com/design/DAGT_bU2s5E/UeRLFRTzk9M_7QNpnd7yuQ/edit?utm_content=DAGT_bU2s5E&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
