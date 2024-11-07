@@ -81,7 +81,7 @@ begin
       if( g_bPingPong )then
       begin
         g_bPingPong := False;
-        nCount := 99;
+        nCount := 999;
       end
       else
       begin

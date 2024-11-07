@@ -38,7 +38,7 @@ implementation
 
 var
  g_n_rds_port          : Integer = 6379;
- g_n_rds_extended_time : Integer = 86400; {1day by sec}
+ g_n_rds_extended_time : Integer = 86400; {1day as sec}
  g_s_rds_ip            : string  = 'localhost';
 
 function GenerateToken(): string;

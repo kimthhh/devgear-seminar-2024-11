@@ -149,9 +149,10 @@ begin
             DecodedContent := TEncoding.UTF8.GetString( TNetEncoding.URL.Decode( Context.Request.Content ) );
             Assert( False, DecodedContent );
 
-                       QueryParams := TStringList.Create;
+                       QueryParams               := TStringList.Create;
                        QueryParams.Delimiter     := '&';
                        QueryParams.DelimitedText := DecodedContent;
+
             sParams := QueryParams.DelimitedText.Replace(sLineBreak, '&');
             Assert( False, sParams );
 
@@ -195,6 +196,8 @@ begin
           bNEXT := rds_VerifyTokenAndExtend( sToken );
         end;
       end;
+
+      //bNEXT := True;  // for debugging..
 
       if( bNEXT )then
       begin
