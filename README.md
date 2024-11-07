@@ -24,10 +24,17 @@ This Delphi project serves as a sample for processing API keys, data retrieval, 
 
 ## Folder Descriptions
 ### 1. COMMON
-- Contains uApiProtocols.pas, which defines records (structures) used for API integration between **ApiServer** and the **ApiServer** web page. This file is commonly referenced by both **ApiServer** and the **ApiServer** web page.
+- Contains uApiProtocols.pas, which defines records (structures) used for API integration between **ApiServer** and the **WetTest web page**. This file is commonly referenced by both **ApiServer** and the **WetTest web page**.
 
 ### 2. API-SERVER
 - Contains a sample REST API project developed with **TMS XData**.
 
 ### 3. WEB-TEST 
 - Contains a sample web page project developed with **TMS WEB Core**.
+
+- -------------------------------
+[ENG]
+https://www.canva.com/design/DAGUBuI9Phg/BqPCwcz4abR4FqBk6LAwoA/edit?utm_content=DAGUBuI9Phg&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
+
+[한글]
+https://www.canva.com/design/DAGT_bU2s5E/UeRLFRTzk9M_7QNpnd7yuQ/edit?utm_content=DAGT_bU2s5E&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
