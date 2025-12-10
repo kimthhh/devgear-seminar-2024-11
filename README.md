@@ -30,6 +30,21 @@ API KEY처리 및 DATA 조회, 화면표시 처리를 2024.11.07 서울 세미�
 
 - -------------------------------
 
+# Delphi + OAuth 2.0 > Login (Google, Naver, Kakao)
+
+## Introduction
+This sample project demonstrates OAuth 2.0 login (Google, Naver, Kakao) using Delphi 12.2, TMS XData, and FNC Component Studio.
+It includes a REST API server (for handling RedirectURI callbacks) and a Delphi FMX application running on Windows and Android.
+
+## Folder Description
+### 1. API-SERVER
+- Contains a sample REST API project built with **TMS XData**.
+- **OAuth 2.0 RedirectURI** handling logic has been added and updated to the existing code.
+
+### 2. OAuth-Google-Naver-Kakao
+- A demonstration application that performs OAuth 2.0 login with **Google, Naver, and Kakao**.
+- Verified to work properly on both Windows and Android environments.
+
 # Move Beyond VCL to the Web with TMS WEB Core and BIZ!
 
 ## Introduction
