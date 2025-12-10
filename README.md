@@ -45,6 +45,17 @@ It includes a REST API server (for handling RedirectURI callbacks) and a Delphi 
 - A demonstration application that performs OAuth 2.0 login with **Google, Naver, and Kakao**.
 - Verified to work properly on both Windows and Android environments.
 
+- -------------------------------
+[ENG]
+https://www.canva.com/design/DAG7GRpMsZQ/1XuYIBp0CZQQc_dHMaWqtQ/edit?utm_content=DAG7GRpMsZQ&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
+
+[Event Information Link(Korean)]
+https://docs.google.com/forms/d/e/1FAIpQLSfu-4tv_c1gnBX3yoVKaawsWHF7-kElHFOYMHIrGZBN_-c2Zg/viewform
+
+
+[한글]
+https://www.canva.com/design/DAG55iNNWV4/-JmGrMfm8q5cnTBsL2fzvg/edit?utm_content=DAG55iNNWV4&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
+
 # Move Beyond VCL to the Web with TMS WEB Core and BIZ!
 
 ## Introduction
@@ -67,3 +78,48 @@ https://www.canva.com/design/DAGUBuI9Phg/BqPCwcz4abR4FqBk6LAwoA/edit?utm_content
 
 [한글]
 https://www.canva.com/design/DAGT_bU2s5E/UeRLFRTzk9M_7QNpnd7yuQ/edit?utm_content=DAGT_bU2s5E&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
+
+# Delphi 30th Anniversary Year-End Developer Workshop – Registration Form
+
+You are invited to the Delphi 30th Anniversary Year-End Developer Workshop. This event will feature open discussions and topic presentations where developers can share their experiences, challenges, and insights on various technical subjects. Let’s wrap up 2025 together and start 2026 even better.
+
+(Seats are limited. After submitting your request for an invitation here, a final confirmation will be sent separately.)
+
+Event Name: Delphi 30th Anniversary Year-End Developer Workshop
+Date & Time: December 11 (Thu), 2:00 PM – 6:00 PM
+(Official presentations begin at 2:30 PM)
+Venue: Gangnam Beach (200m from Exit 11 of Gangnam Station, https://naver.me/xLSF7Nwc
+)
+Audience: Delphi developers
+Capacity: Approximately 40 participants
+Format: Topic presentations & open discussions
+Registration: https://forms.gle/YPV91s1zpT42B1DU9
+
+## Schedule
+
+2:00 – 2:30 PM: Check-in & informal networking
+2:30 – 3:00 PM: Topic Presentation (Technology Stack*) + Q&A, Open Discussion, Free Networking
+3:00 – 3:30 PM: Topic Presentation (Developer Productivity*) + Q&A, Open Discussion, Free Networking
+3:30 – 4:00 PM: Topic Presentation (Platform Applications*) + Q&A, Open Discussion, Free Networking
+4:00 – 5:00 PM: Participant Lightning Talks
+(Your current projects, challenges, and solution efforts)
+5:00 – 6:00 PM: Dinner & Free Discussion
+
+## Details of Public Topic Presentations
+
+1) Migrating from 32-bit to 64-bit + Build & Release Process (SQLGate, Yang Yong-seong)
+- Explanation of why and how SQLGate V10 transitioned from 32-bit to 64-bit, including an overview of the automated build and deployment pipeline.
+
+2) Delphi Application Development Demo Using Claude AI (Delmadang Admin, Ahn Young-je)
+- Demonstration of how any Delphi developer can easily build a classic Minesweeper Windows application using Claude AI.
+
+3) Implementing Google, Naver, and Kakao Login Using OAuth 2.0 on Windows and Mobile (PointHub, Tae Hyun Kim)
+- An introduction to implementing OAuth 2.0 login for Windows and Android apps based on the latest development environment.
+
+## Format & Additional Information
+
+1) Aside from the presentation times, participants are free to move around and engage in discussions with other developers.
+
+2) Dinner will be provided from 5 PM (or earlier around 4 PM).
+
+3) Coffee, beverages, and light snacks will be available from 2 PM until dinner.
