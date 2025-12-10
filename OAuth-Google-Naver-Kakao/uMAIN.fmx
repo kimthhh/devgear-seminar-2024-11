@@ -1,0 +1,271 @@
+object fMAIN: TfMAIN
+  Left = 0
+  Top = 0
+  Caption = 'OAuth 2.0 Login Sample'
+  ClientHeight = 740
+  ClientWidth = 431
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  OnShow = FormShow
+  DesignerMasterStyle = 3
+  object TabControl: TTabControl
+    Align = Client
+    Size.Width = 431.000000000000000000
+    Size.Height = 740.000000000000000000
+    Size.PlatformDefault = False
+    TabHeight = 49.000000000000000000
+    TabIndex = 1
+    TabOrder = 7
+    TabPosition = Bottom
+    Sizes = (
+      431s
+      691s
+      431s
+      691s)
+    object tabMain: TTabItem
+      CustomIcon = <
+        item
+        end>
+      TextSettings.Trimming = None
+      IsSelected = False
+      Size.Width = 215.000000000000000000
+      Size.Height = 49.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = ''
+      TabOrder = 0
+      Text = 'Main'
+      ExplicitSize.cx = 188.000000000000000000
+      ExplicitSize.cy = 49.000000000000000000
+      object Memo: TMemo
+        Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
+        DataDetectorTypes = []
+        Align = Client
+        Size.Width = 431.000000000000000000
+        Size.Height = 291.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        OnDblClick = MemoDblClick
+        Viewport.Width = 423.000000000000000000
+        Viewport.Height = 283.000000000000000000
+      end
+      object Panel: TPanel
+        Align = Top
+        Size.Width = 431.000000000000000000
+        Size.Height = 400.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 5
+        object lbl_code: TLabel
+          Position.X = 13.000000000000000000
+          Position.Y = 262.000000000000000000
+          Size.Width = 51.000000000000000000
+          Size.Height = 23.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'code'
+          TabOrder = 2
+        end
+        object edtCode: TEdit
+          Touch.InteractiveGestures = [LongTap, DoubleTap]
+          Anchors = [akLeft, akTop, akRight]
+          TabOrder = 3
+          TextSettings.Font.Size = 8.000000000000000000
+          Position.X = 70.000000000000000000
+          Position.Y = 267.000000000000000000
+          Size.Width = 353.000000000000000000
+          Size.Height = 32.000000000000000000
+          Size.PlatformDefault = False
+          StyledSettings = [Family, Style, FontColor]
+        end
+        object lbl_token: TLabel
+          Position.X = 13.000000000000000000
+          Position.Y = 310.000000000000000000
+          Size.Width = 51.000000000000000000
+          Size.Height = 23.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'token'
+          TabOrder = 0
+        end
+        object edtToken: TEdit
+          Touch.InteractiveGestures = [LongTap, DoubleTap]
+          Anchors = [akLeft, akTop, akRight]
+          TabOrder = 1
+          TextSettings.Font.Size = 8.000000000000000000
+          Position.X = 67.000000000000000000
+          Position.Y = 307.000000000000000000
+          Size.Width = 353.000000000000000000
+          Size.Height = 32.000000000000000000
+          Size.PlatformDefault = False
+          StyledSettings = [Family, Style, FontColor]
+        end
+        object btnLogout: TButton
+          Position.X = 280.000000000000000000
+          Position.Y = 348.000000000000000000
+          Size.Width = 120.000000000000000000
+          Size.Height = 44.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 4
+          Text = 'Logout'
+          TextSettings.Trimming = None
+          OnClick = btnLogoutClick
+        end
+        object lbl_title: TLabel
+          Align = Top
+          Size.Width = 431.000000000000000000
+          Size.Height = 30.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.HorzAlign = Center
+          Text = '--'
+          TabOrder = 6
+        end
+        object img_profile: TImageControl
+          Position.X = 20.000000000000000000
+          Position.Y = 88.000000000000000000
+          TabOrder = 7
+        end
+        object lbl_name: TLabel
+          Position.X = 137.000000000000000000
+          Position.Y = 91.000000000000000000
+          Size.Width = 231.000000000000000000
+          Size.Height = 23.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'lbl_name'
+          TabOrder = 12
+        end
+        object lbl_email: TLabel
+          Position.X = 137.000000000000000000
+          Position.Y = 162.000000000000000000
+          Size.Width = 231.000000000000000000
+          Size.Height = 23.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'lbl_email'
+          TabOrder = 11
+        end
+        object lbl_nick: TLabel
+          Position.X = 137.000000000000000000
+          Position.Y = 127.000000000000000000
+          Size.Width = 231.000000000000000000
+          Size.Height = 23.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'lbl_nick'
+          TabOrder = 8
+        end
+        object lbl_birthday: TLabel
+          StyledSettings = [Family, Style, FontColor]
+          Position.X = 137.000000000000000000
+          Position.Y = 195.000000000000000000
+          Size.Width = 231.000000000000000000
+          Size.Height = 23.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Size = 18.000000000000000000
+          Text = 'lbl_birthday'
+          Visible = False
+          TabOrder = 10
+        end
+        object lbl_mobile: TLabel
+          Position.X = 137.000000000000000000
+          Position.Y = 227.000000000000000000
+          Size.Width = 231.000000000000000000
+          Size.Height = 23.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'lbl_mobile'
+          Visible = False
+          TabOrder = 9
+        end
+        object pnl_top: TPanel
+          Align = Top
+          Position.Y = 30.000000000000000000
+          Size.Width = 431.000000000000000000
+          Size.Height = 44.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 13
+          object btn_connect_google: TButton
+            Align = Left
+            Margins.Left = 6.000000000000000000
+            Position.X = 6.000000000000000000
+            Size.Width = 118.000000000000000000
+            Size.Height = 44.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 4
+            Text = 'google'
+            TextSettings.Trimming = None
+            OnClick = btn_connect_googleClick
+          end
+          object btn_connect_kakao: TButton
+            Align = Right
+            Margins.Right = 6.000000000000000000
+            Position.X = 307.000000000000000000
+            Size.Width = 118.000000000000000000
+            Size.Height = 44.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 3
+            Text = 'kakao'
+            TextSettings.Trimming = None
+            OnClick = btn_connect_kakaoClick
+          end
+          object btn_connect_naver: TButton
+            Align = Center
+            Size.Width = 118.000000000000000000
+            Size.Height = 44.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 2
+            Text = 'naver'
+            TextSettings.Trimming = None
+            OnClick = btn_connect_naverClick
+          end
+        end
+      end
+    end
+    object tabBrowser: TTabItem
+      CustomIcon = <
+        item
+        end>
+      TextSettings.Trimming = None
+      IsSelected = True
+      Size.Width = 216.000000000000000000
+      Size.Height = 49.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = ''
+      TabOrder = 0
+      Text = 'Browser'
+      ExplicitSize.cx = 188.000000000000000000
+      ExplicitSize.cy = 49.000000000000000000
+    end
+  end
+  object tmrLogin: TTimer
+    Enabled = False
+    Interval = 1500
+    OnTimer = tmrLoginTimer
+    Left = 36
+    Top = 380
+  end
+  object OAuth2Authenticator: TOAuth2Authenticator
+    AccessTokenEndpoint = 'https://nid.naver.com/oauth2.0/token'
+    AuthorizationEndpoint = 'https://nid.naver.com/oauth2.0/authorize'
+    ClientID = 'u7YwrGyddmXJ24P7upb8'
+    ClientSecret = 'upanGt1G8N'
+    RedirectionEndpoint = 'http://localhost:8088/oauth'
+    Scope = 'profile'
+    Left = 232
+    Top = 412
+  end
+  object RESTClient: TRESTClient
+    Params = <>
+    SynchronizedEvents = False
+    Left = 142
+    Top = 386
+  end
+  object RESTRequest: TRESTRequest
+    Client = RESTClient
+    Method = rmPOST
+    Params = <>
+    Response = RESTResponse
+    SynchronizedEvents = False
+    Left = 142
+    Top = 502
+  end
+  object RESTResponse: TRESTResponse
+    Left = 142
+    Top = 446
+  end
+end

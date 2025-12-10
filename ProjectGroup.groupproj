@@ -9,6 +9,9 @@
         <Projects Include="API-SERVER\ApiServer.dproj">
             <Dependencies/>
         </Projects>
+        <Projects Include="OAuth-Google-Naver-Kakao\LoginGoogleNaverKakao.dproj">
+            <Dependencies/>
+        </Projects>
     </ItemGroup>
     <ProjectExtensions>
         <Borland.Personality>Default.Personality.12</Borland.Personality>
@@ -35,14 +38,23 @@
     <Target Name="ApiServer:Make">
         <MSBuild Projects="API-SERVER\ApiServer.dproj" Targets="Make"/>
     </Target>
+    <Target Name="LoginGoogleNaverKakao">
+        <MSBuild Projects="OAuth-Google-Naver-Kakao\LoginGoogleNaverKakao.dproj"/>
+    </Target>
+    <Target Name="LoginGoogleNaverKakao:Clean">
+        <MSBuild Projects="OAuth-Google-Naver-Kakao\LoginGoogleNaverKakao.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="LoginGoogleNaverKakao:Make">
+        <MSBuild Projects="OAuth-Google-Naver-Kakao\LoginGoogleNaverKakao.dproj" Targets="Make"/>
+    </Target>
     <Target Name="Build">
-        <CallTarget Targets="WebTest;ApiServer"/>
+        <CallTarget Targets="WebTest;ApiServer;LoginGoogleNaverKakao"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="WebTest:Clean;ApiServer:Clean"/>
+        <CallTarget Targets="WebTest:Clean;ApiServer:Clean;LoginGoogleNaverKakao:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="WebTest:Make;ApiServer:Make"/>
+        <CallTarget Targets="WebTest:Make;ApiServer:Make;LoginGoogleNaverKakao:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{412851DF-0F38-49A7-8AB8-9D06CBD2536E}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="LoginGoogleNaverKakao.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="..\OAuth-API-SERVER\OAuthApiServer.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="LoginGoogleNaverKakao">
+        <MSBuild Projects="LoginGoogleNaverKakao.dproj"/>
+    </Target>
+    <Target Name="LoginGoogleNaverKakao:Clean">
+        <MSBuild Projects="LoginGoogleNaverKakao.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="LoginGoogleNaverKakao:Make">
+        <MSBuild Projects="LoginGoogleNaverKakao.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="OAuthApiServer">
+        <MSBuild Projects="..\OAuth-API-SERVER\OAuthApiServer.dproj"/>
+    </Target>
+    <Target Name="OAuthApiServer:Clean">
+        <MSBuild Projects="..\OAuth-API-SERVER\OAuthApiServer.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="OAuthApiServer:Make">
+        <MSBuild Projects="..\OAuth-API-SERVER\OAuthApiServer.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="LoginGoogleNaverKakao;OAuthApiServer"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="LoginGoogleNaverKakao:Clean;OAuthApiServer:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="LoginGoogleNaverKakao:Make;OAuthApiServer:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

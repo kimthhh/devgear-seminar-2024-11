@@ -1,3 +1,17 @@
+# Delphi + OAuth 2.0 > Login (Google, Naver, Kakao)
+
+## 소개
+Delphi 12.2와 TMS XData 및 FNC Component Studio를 활용한 OAuth 2.0 로그인을위한 REST API 서버(for RedirectURI)와 Delphi FMX 응용프로그램으로 Windows, Android 환경에서 Google, Naver, Kakao OAuth 2.0 로그인 샘플프로젝트를 진행합니다.
+
+## 폴더설명
+### 1. API-SERVER
+- **TMS XData**로 제작된 샘플 REST API 프로젝트가 존재합니다.
+- **OAuth 2.0 RedirectURI** 업무처리가 기존 코드에 업데이트 되었습니다.
+
+### 2. OAuth-Google-Naver-Kakao
+- Google, Naver, Kakao 로 OAuth 2.0 로그인 시현용 응용프로그램 구현
+- Windows와 Android환경에서 정상구동 확인
+
 # TMS WEB Core와 BIZ를 활용해 VCL넘어 WEB으로 가자!
 
 ## 소개
