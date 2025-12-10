@@ -1,12 +1,11 @@
 object ServerContainer: TServerContainer
   OnCreate = DataModuleCreate
-  Height = 315
-  Width = 525
-  PixelsPerInch = 144
+  Height = 317
+  Width = 446
   object SparkleHttpSysDispatcher: TSparkleHttpSysDispatcher
     Active = True
-    Left = 108
-    Top = 24
+    Left = 128
+    Top = 48
   end
   object XDataServer: TXDataServer
     BaseUrl = 'http://+:2001/tms/xdata'
@@ -15,8 +14,8 @@ object ServerContainer: TServerContainer
     EntitySetPermissions = <>
     SwaggerOptions.Enabled = True
     SwaggerUIOptions.Enabled = True
-    Left = 324
-    Top = 24
+    Left = 72
+    Top = 16
     object XDataServerCORS: TSparkleCorsMiddleware
     end
     object XDataServerGeneric: TSparkleGenericMiddleware
@@ -24,11 +23,11 @@ object ServerContainer: TServerContainer
   end
   object XDataConnectionPool: TXDataConnectionPool
     Connection = AureliusConnection
-    Left = 324
-    Top = 108
+    Left = 128
+    Top = 104
   end
   object AureliusConnection: TAureliusConnection
-    Left = 324
-    Top = 192
+    Left = 272
+    Top = 48
   end
 end
